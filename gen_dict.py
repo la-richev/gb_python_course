@@ -1,8 +1,5 @@
 # Генерация словаря из кортежей
 
-from unittest import result
-
-
 pairs = [(1, 'Di'), (2, 'Kate'), (3, 'Yura')]
 print(pairs)
 
