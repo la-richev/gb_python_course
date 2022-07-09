@@ -23,5 +23,6 @@ for i in range(len(word)):
     letter = word[i].lower() if i%2 != 0 else word[i].upper()
     result.append(letter)
 
+print(result)
 result = ''.join(result)    # из списка сделать строчку метод join
 print(result)
