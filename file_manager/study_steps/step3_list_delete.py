@@ -1,0 +1,46 @@
+import os # нужно для создания папки
+
+
+# функция создания файла
+def create_file(name, text=None): #если текст не будет задан, тогда мы не будем записывать ничего
+    with open(name, 'w', encoding='utf-8') as f: # используем менеджер контекста и сохраняем файл в переменную f
+        if text: # если у нас есть текст
+            f.write(text) # мы в наш файл будет записывать текст
+# если текст нет, после того как закроется менеджер контекста, файл будет создан и закрыт
+
+
+# фунция создания папки с исключением
+def create_folder(name):
+    try:
+        os.mkdir(name)
+    except FileExistsError: # быдем отслеживать, если файл уже создан
+        print('Такая папка уже есть')
+
+
+# функция создает список из файлов и папок в текушей директории:
+def get_list():
+    print(os.listdir()) # or os.listdir('file_manager/')
+
+
+# функция создает список из файлов и папок в текушей директории c параметрами (поиск папки):
+def get_list_param(folders_only=False):
+    result = os.listdir()
+    if folders_only:
+        result = [f for f in result if os.path.isdir(f)] # os.path.isdir функция проверки на папку
+    print(result)
+
+
+# удаление
+def delete_file(name):
+    if os.path.isdir(name): #проверка на папку
+        os.rmdir(name) # удаление папки 
+    else:
+        os.remove(name) # удаление файла
+
+
+if __name__ == '__main__': # чтобы при ипорте в др скрипт этот код не выполнялся
+    create_file('text.dat', 'some text')
+    create_folder('new_f')
+    get_list()
+    get_list_param(True)
+    delete_file('new_f')
