@@ -8,6 +8,7 @@
 # которая поднимается внутри функции.
 
 import math
+from unittest import result
 
 # Без функции
 number = int(input('Без функции, квадратный корень числа // Введите число от 1 до 100: '))
@@ -46,6 +47,23 @@ print(square(number))
 #         result = [number ** 2]
 #         return result
 
-
 # n = int(input('Введите число от 1 до 100, кроме 13: '))
 # print(square(n))
+
+# решение преподавателя
+print('Решение преподавателя:')
+def unlucky_number(number):
+    if number == 13:
+        raise ValueError("It's unlucky number!")
+    else:
+        return number ** 2
+
+number = int(input('Функция, квадрат числа // Введите число от 1 до 100: '))
+
+try:
+    result = unlucky_number(number)
+except ValueError:
+    print('У нас несчастливое число')
+else:
+    print(result)
+    

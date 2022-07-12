@@ -37,3 +37,11 @@ for fruit in fruits:
         result.append(fruit)
 
 print(result)
+
+# решение преподавателя
+result = []
+for fruit in fruit_1:
+    if fruit in fruit_2:
+        result.append(fruit)
+
+print(result)
